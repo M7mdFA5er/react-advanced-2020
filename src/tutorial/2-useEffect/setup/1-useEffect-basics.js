@@ -6,8 +6,14 @@ const UseEffectBasics = () => {
   const [value, setValue] = useState(0);
   useEffect(() => {
     console.log('call UseEffect');
-    document.title = `New Notifications(${value})`;
-  });
+    if (value >= 1) {
+      document.title = `New Notifications(${value})`;
+    }
+  }, [value]);
+
+  useEffect(() => {
+    console.log(`First Render Only`);
+  }, [])
 
   console.log('render Component :>> ');
   return (
